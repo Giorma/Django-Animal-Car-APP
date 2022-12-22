@@ -1,0 +1,7 @@
+<center>
+<h1>List of Animals</h1>
+
+{% for animal in animals %}
+    <p>{{ animal.name }} ({{ animal.species }}, {{ animal.age }})</p>
+{% endfor %}
+</center>

@@ -1,0 +1,7 @@
+<center>
+<h1>List of Cars</h1>
+
+{% for car in cars %}
+    <p>{{ car.make }} {{ car.model }} ({{ car.year }})</p>
+{% endfor %}
+</center>

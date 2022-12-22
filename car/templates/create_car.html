@@ -1,0 +1,15 @@
+<center>
+<h1>Create a Car</h1>
+
+<form method="post" action="{% url 'create_car' %}">
+    {% csrf_token %}
+
+    <label for="make">Make:</label><br>
+    <input type="text" name="make" id="make" required><br>
+    <label for="model">Model:</label><br>
+    <input type="text" name="model" id="model"><br>
+    <label for="year">Year:</label><br>
+    <input type="number" name="year" id="year"><br><br>
+    <input type="submit" value="Submit">
+    </center>
+</form>

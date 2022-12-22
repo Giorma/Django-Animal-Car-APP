@@ -1,0 +1,14 @@
+<center>
+<h1>Create an Animal</h1>
+
+<form method="post" action="{% url 'create_animal' %}">
+    {% csrf_token %}
+    <label for="name">Name:</label><br>
+    <input type="text" name="name" id="name" required><br>
+    <label for="species">Species:</label><br>
+    <input type="text" name="species" id="species"><br>
+    <label for="age">Age:</label><br>
+    <input type="number" name="age" id="age"><br><br>
+    <input type="submit" value="Submit">
+</form>
+</center>
