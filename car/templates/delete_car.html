@@ -1,0 +1,10 @@
+<center>
+<h1>Delete a Car</h1>
+
+<form method="post" action="{% url 'delete_car' %}">
+    {% csrf_token %}
+    <label for="car_id">Car ID:</label><br>
+    <input type="number" name="car_id" id="car_id"><br><br>
+    <input type="submit" value="Submit">
+</form>
+</center>

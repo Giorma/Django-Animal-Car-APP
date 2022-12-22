@@ -1,0 +1,12 @@
+<center>
+<h1>Delete an Animal</h1>
+
+<form method="post" action="{% url 'delete_animal' %}">
+    {% csrf_token %}
+    <label for="animal_id">Animal ID:</label><br>
+    <input type="number" name="animal_id" id="animal_id"><br><br>
+    <input type="submit" value="Submit">
+</form>
+</center>
+
+

@@ -1,3 +1,4 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Car
@@ -14,11 +15,18 @@ def create_car(request):
     return render(request, 'create_car.html')
 
 
-def delete_car(request, car_id):
-    car = get_object_or_404(Car, pk=car_id)
-    car.delete()
-    return HttpResponse(f'Car {car.make} {car.model} deleted successfully!')
 
+
+def delete_car(request):
+    if request.method == 'POST':
+        try:
+            car_id = request.POST['car_id']
+            car = Car.objects.get(pk=car_id)
+        except ObjectDoesNotExist:
+            return HttpResponse('Car does not exist, please check car list')
+        car.delete()
+        return HttpResponse(f'Car with ID {car_id} deleted successfully!')
+    return render(request, 'delete_car.html')
 
 class CarListView(ListView):
     model = Car
